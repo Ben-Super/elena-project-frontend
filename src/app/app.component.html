@@ -1,6 +1,6 @@
-<div fxLayout="column" fxFlexFill>
-  <!-- Toolbar -->
-  <mat-toolbar class="navbar-color mat-elevation-z8 p-0" fxLayout="row" fxLayoutAlign="start stretch">
+<!-- Toolbar -->
+<div class="container">
+  <mat-toolbar color="primary">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -11,18 +11,18 @@
     </button>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlex autosize class="background">
+  <mat-drawer-container class="sidenav">
 
     <!-- Sidenav -->
-    <mat-sidenav #sidenav mode="side" opened>
+    <mat-drawer #sidenav opened="true">
       <app-sidenav></app-sidenav>
-    </mat-sidenav>
+    </mat-drawer>
 
     <!-- Main Content -->
     <div class="main-content">
 
     </div>
-  </mat-sidenav-container>
-
-  <router-outlet></router-outlet>
+  </mat-drawer-container>
 </div>
+
+<router-outlet></router-outlet>
