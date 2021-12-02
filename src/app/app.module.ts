@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatFormFieldModule,
-    FlexLayoutModule
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
