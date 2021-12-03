@@ -4,11 +4,13 @@
         <h2 style="font-family:roboto">From</h2>
         <mat-form-field appearance="standard">
             <mat-label>Lattitude</mat-label>
-            <input matInput placeholder="Coordinate">
+            <input matInput placeholder="0.00" [formControl]="fromLat" required>
+            <mat-error *ngIf="fromLat.invalid">Enter a valid coordinate.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Longitude</mat-label>
-            <input matInput placeholder="Coordinate">
+            <input matInput placeholder="0.00" [formControl]="fromLon" required>
+            <mat-error *ngIf="fromLon.invalid">Enter a valid coordinate.</mat-error>
             <mat-icon matSuffix>my_location</mat-icon>
         </mat-form-field>
     </div>
@@ -17,11 +19,13 @@
         <h2 style="font-family:roboto">To</h2>
         <mat-form-field appearance="standard">
             <mat-label>Lattitude</mat-label>
-            <input matInput placeholder="Coordinate">
+            <input matInput placeholder="0.00" [formControl]="toLat" required>
+            <mat-error *ngIf="toLat.invalid">Enter a valid coordinate.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Longitude</mat-label>
-            <input matInput placeholder="Coordinate">
+            <input matInput placeholder="0.00" [formControl]="toLon" required>
+            <mat-error *ngIf="toLon.invalid">Enter a valid coordinate.</mat-error>
             <mat-icon matSuffix>near_me</mat-icon>
         </mat-form-field>
     </div>
