@@ -4,12 +4,12 @@
         <h2 style="font-family:roboto">From</h2>
         <mat-form-field appearance="standard">
             <mat-label>Lattitude</mat-label>
-            <input matInput placeholder="0.00" [formControl]="fromLat" required>
+            <input matInput [(ngModel)]="pointA.lat" type="number" placeholder="0.00" [formControl]="fromLat" required>
             <mat-error *ngIf="fromLat.invalid">Enter a valid coordinate.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Longitude</mat-label>
-            <input matInput placeholder="0.00" [formControl]="fromLon" required>
+            <input matInput [(ngModel)]="pointA.long" type="number" placeholder="0.00" [formControl]="fromLon" required>
             <mat-error *ngIf="fromLon.invalid">Enter a valid coordinate.</mat-error>
             <mat-icon matSuffix>my_location</mat-icon>
         </mat-form-field>
@@ -19,12 +19,12 @@
         <h2 style="font-family:roboto">To</h2>
         <mat-form-field appearance="standard">
             <mat-label>Lattitude</mat-label>
-            <input matInput placeholder="0.00" [formControl]="toLat" required>
+            <input matInput [(ngModel)]="pointB.lat" type="number" placeholder="0.00" [formControl]="toLat" required>
             <mat-error *ngIf="toLat.invalid">Enter a valid coordinate.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Longitude</mat-label>
-            <input matInput placeholder="0.00" [formControl]="toLon" required>
+            <input matInput [(ngModel)]="pointB.long" type="number" placeholder="0.00" [formControl]="toLon" required>
             <mat-error *ngIf="toLon.invalid">Enter a valid coordinate.</mat-error>
             <mat-icon matSuffix>near_me</mat-icon>
         </mat-form-field>
@@ -37,4 +37,8 @@
             <mat-radio-button class="radio-button" value="2">Maximize</mat-radio-button>
         </mat-radio-group>
     </div>
+    <!-- <div class="sidenav-row">
+        <p>Point A: {{ pointA.toString() }}</p>
+        <p>Point B: {{ pointB.toString() }}</p>
+    </div> -->
 </div>
