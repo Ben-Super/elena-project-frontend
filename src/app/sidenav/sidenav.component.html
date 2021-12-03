@@ -1,13 +1,36 @@
 <!-- This component will handle the content in the sidenav -->
 <div class="sidenav-rows">
-    <mat-form-field appearance="standard">
-        <mat-label>From</mat-label>
-        <input matInput placeholder="Location">
-        <mat-icon matSuffix>my_location</mat-icon>
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-        <mat-label>To</mat-label>
-        <input matInput placeholder="Location">
-        <mat-icon matSuffix>near_me</mat-icon>
-    </mat-form-field>
+    <div class="sidenav-row">
+        <h2 style="font-family:roboto">From</h2>
+        <mat-form-field appearance="standard">
+            <mat-label>Lattitude</mat-label>
+            <input matInput placeholder="Coordinate">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>Longitude</mat-label>
+            <input matInput placeholder="Coordinate">
+            <mat-icon matSuffix>my_location</mat-icon>
+        </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sidenav-row">
+        <h2 style="font-family:roboto">To</h2>
+        <mat-form-field appearance="standard">
+            <mat-label>Lattitude</mat-label>
+            <input matInput placeholder="Coordinate">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>Longitude</mat-label>
+            <input matInput placeholder="Coordinate">
+            <mat-icon matSuffix>near_me</mat-icon>
+        </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sidenav-row">
+        <h2 style="font-family:roboto">Elevation</h2>
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button class="radio-button" value="1">Minimize</mat-radio-button>
+            <mat-radio-button class="radio-button" value="2">Maximize</mat-radio-button>
+        </mat-radio-group>
+    </div>
 </div>
