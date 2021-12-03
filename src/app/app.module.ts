@@ -14,12 +14,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
+import { MapComponent } from './map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
+    MapComponent,
     ButtonComponent
   ],
   imports: [
@@ -33,7 +36,8 @@ import { ButtonComponent } from './button/button.component';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
