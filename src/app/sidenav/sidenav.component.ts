@@ -29,4 +29,15 @@ export class SidenavComponent implements OnInit {
     this.pointB.long = 0;
   }
 
+  getPath(){
+    if(this.fromLat.status === 'VALID' && this.fromLon.status === 'VALID' && this.toLat.status === 'VALID' && this.toLon.status === 'VALID'){
+      console.log(this.pointA.lat, this.pointA.long);
+      console.log(this.pointB.lat, this.pointB.long);
+    }
+    else{
+      alert('Please Input Valid Coordinates!')
+    }
+  }
+
+
 }
