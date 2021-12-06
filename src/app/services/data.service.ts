@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Coordinate } from '../templates/coordinate';
+import { Observable, Subject, of } from 'rxjs';
+import { SidenavData } from '../templates/sidenavdata';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  public observable;
-  public pointA: Coordinate;
-  public pointB: Coordinate;
+  private subject = new Subject<SidenavData>();
+  private data: SidenavData;
 
   constructor() {
-    this.observable = new Subject();
-    this.pointA = new Coordinate(0, 0);
-    this.pointB = new Coordinate(0, 0);
+    this.data = new SidenavData();
+  }
+
+  public setData(data: SidenavData): void {
+    this.data = data;
+    this.subject.next(this.data);
+  }
+
+  public getData(): Observable<SidenavData> {
+    return this.subject.asObservable();
   }
 }

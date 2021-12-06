@@ -14,6 +14,9 @@ export class MapComponent implements OnInit {
   @Input() dataService: DataService;
 
   private map: Leaflet.Map;
+  private routingControl = null;
+  // will eventually store the entire custom route
+  private routes = [];
 
   constructor() { }
 
@@ -21,6 +24,7 @@ export class MapComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.initMap();
+    this.dataService.getData().subscribe(data => { this.drawRoute(data.getPointA(), data.getPointB()); });
   }
 
   private initMap(): void {
@@ -35,7 +39,11 @@ export class MapComponent implements OnInit {
   }
 
   public drawRoute(pointA: Coordinate, pointB: Coordinate): void {
-    Leaflet.Routing.control({
+    if (this.routingControl != null) {
+      this.map.removeControl(this.routingControl);
+    }
+    console.log("Drawing new route between coordinates:\n" + pointA.toString() + "\n" + pointB.toString());
+    this.routingControl = Leaflet.Routing.control({
       waypoints: [
         new Leaflet.LatLng(pointA.lat, pointA.long),
         new Leaflet.LatLng(pointB.lat, pointB.long),

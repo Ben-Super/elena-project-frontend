@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
+import { Coordinate } from '../templates/coordinate';
+import { SidenavData } from '../templates/sidenavdata';
 
 @Component({
   selector: 'app-sidenav',
@@ -18,15 +20,21 @@ export class SidenavComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.fromLat.setValue(42.3936964);
+    this.fromLon.setValue(-72.5311701);
+    this.toLat.setValue(42.3976964);
+    this.toLon.setValue(-72.5351701);
+  }
 
   getPath() {
     if(this.fromLat.valid && this.fromLon.valid && this.toLat.valid && this.toLon.valid) {
-      this.dataService.observable.next();
-      console.log(this.dataService.pointA.lat, this.dataService.pointA.long);
-      console.log(this.dataService.pointB.lat, this.dataService.pointB.long);
+      let data = new SidenavData();
+      data.setPointA(new Coordinate(this.fromLat.value, this.fromLon.value));
+      data.setPointB(new Coordinate(this.toLat.value, this.toLon.value));
+      this.dataService.setData(data);
     } else {
-      alert('Please Input Valid Coordinates!');
+      alert('Please Input valid coordinates!');
     }
   }
 }
