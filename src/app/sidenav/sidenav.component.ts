@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Coordinate } from '../templates/coordinate';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,35 +9,24 @@ import { Coordinate } from '../templates/coordinate';
 })
 export class SidenavComponent implements OnInit {
 
+  @Input() dataService: DataService;
+
   fromLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
   fromLon = new FormControl('', [Validators.required, Validators.min(-180), Validators.max(180)]);
   toLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
   toLon = new FormControl('', [Validators.required, Validators.min(-180), Validators.max(180)]);
 
-  pointA: Coordinate<number>;
-  pointB: Coordinate<number>;
+  constructor() { }
 
-  constructor() {
-    this.pointA = new Coordinate<number>();
-    this.pointB = new Coordinate<number>();
-  }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    this.pointA.lat = 0;
-    this.pointA.long = 0;
-    this.pointB.lat = 0;
-    this.pointB.long = 0;
-  }
-
-  getPath(){
-    if(this.fromLat.status === 'VALID' && this.fromLon.status === 'VALID' && this.toLat.status === 'VALID' && this.toLon.status === 'VALID'){
-      console.log(this.pointA.lat, this.pointA.long);
-      console.log(this.pointB.lat, this.pointB.long);
-    }
-    else{
-      alert('Please Input Valid Coordinates!')
+  getPath() {
+    if(this.fromLat.valid && this.fromLon.valid && this.toLat.valid && this.toLon.valid) {
+      this.dataService.observable.next();
+      console.log(this.dataService.pointA.lat, this.dataService.pointA.long);
+      console.log(this.dataService.pointB.lat, this.dataService.pointB.long);
+    } else {
+      alert('Please Input Valid Coordinates!');
     }
   }
-
-
 }

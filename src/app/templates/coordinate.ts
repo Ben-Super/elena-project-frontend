@@ -1,6 +1,11 @@
-export class Coordinate<T> {
-    public lat: T;
-    public long: T;
+export class Coordinate {
+    public lat: number;
+    public long: number;
+
+    constructor(lat: number, long: number) {
+        this.lat = lat;
+        this.long = long
+    }
 
     public toString(): string {
         return '[' + this.lat + ', ' + this.long + ']';
