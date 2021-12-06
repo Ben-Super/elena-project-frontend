@@ -15,11 +15,11 @@
 
     <!-- Sidenav -->
     <mat-drawer #sidenav opened="true">
-      <app-sidenav></app-sidenav>
+      <app-sidenav [dataService]="this.dataService"></app-sidenav>
     </mat-drawer>
 
     <!-- Main Content -->
-    <app-map></app-map>
+    <app-map [dataService]="this.dataService"></app-map>
   </mat-drawer-container>
 </div>
 

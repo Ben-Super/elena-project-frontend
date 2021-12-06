@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { DataService } from '../services/data.service';
 import { Coordinate } from '../templates/coordinate';
+import { SidenavData } from '../templates/sidenavdata';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,35 +11,30 @@ import { Coordinate } from '../templates/coordinate';
 })
 export class SidenavComponent implements OnInit {
 
+  @Input() dataService: DataService;
+
   fromLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
   fromLon = new FormControl('', [Validators.required, Validators.min(-180), Validators.max(180)]);
   toLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
   toLon = new FormControl('', [Validators.required, Validators.min(-180), Validators.max(180)]);
 
-  pointA: Coordinate<number>;
-  pointB: Coordinate<number>;
-
-  constructor() {
-    this.pointA = new Coordinate<number>();
-    this.pointB = new Coordinate<number>();
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.pointA.lat = 0;
-    this.pointA.long = 0;
-    this.pointB.lat = 0;
-    this.pointB.long = 0;
+    this.fromLat.setValue(42.3936964);
+    this.fromLon.setValue(-72.5311701);
+    this.toLat.setValue(42.3976964);
+    this.toLon.setValue(-72.5351701);
   }
 
-  getPath(){
-    if(this.fromLat.status === 'VALID' && this.fromLon.status === 'VALID' && this.toLat.status === 'VALID' && this.toLon.status === 'VALID'){
-      console.log(this.pointA.lat, this.pointA.long);
-      console.log(this.pointB.lat, this.pointB.long);
-    }
-    else{
-      alert('Please Input Valid Coordinates!')
+  getPath() {
+    if(this.fromLat.valid && this.fromLon.valid && this.toLat.valid && this.toLon.valid) {
+      let data = new SidenavData();
+      data.setPointA(new Coordinate(this.fromLat.value, this.fromLon.value));
+      data.setPointB(new Coordinate(this.toLat.value, this.toLon.value));
+      this.dataService.setData(data);
+    } else {
+      alert('Please Input valid coordinates!');
     }
   }
-
-
 }
