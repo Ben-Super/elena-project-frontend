@@ -8,9 +8,14 @@ This is the frontend of our CS520 final project. It is a reactive webpage that a
 
 Prerequisites: Node.js, Angular Devkit, and Angular CLI installed (https://angular.io/guide/setup-local)
 
-1) `cd` into the folder containing your local copy of this repo.
-2) Run `npm install` to install all necessary packages for the app.
-3) Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+1) Install node.js by downloading and installing from this link:
+      Windows: https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi
+      MacOS: https://nodejs.org/dist/v16.13.1/node-v16.13.1.pkg
+2) Run 'npm install -g @angular/cli' to install the Angular CLI
+3) run 'npm install --save-dev @angular-devkit/build-angular' to install the Angular Devkit
+4) `cd` into the folder containing your local copy of this repo.
+5) Run `npm install` to install all necessary packages for the app.
+6) Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 NOTE: The routing will not work without a running instance of our backend: https://github.com/pjhopen/elena-project-backend
 
