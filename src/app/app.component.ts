@@ -8,9 +8,8 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent {
   title = 'elena-project-frontend';
-  public dataService: DataService;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService = new DataService();

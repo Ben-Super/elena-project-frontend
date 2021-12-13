@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MapComponent } from './map/map.component';
 
+import { DataService } from './services/data.service';
+import { RequestService } from './services/request.service';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -44,7 +47,11 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     HttpClientModule,
     MatSliderModule
   ],
-  providers: [],
+  providers: [
+    DataService,
+    RequestService,
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

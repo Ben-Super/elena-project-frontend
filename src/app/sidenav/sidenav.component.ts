@@ -14,8 +14,6 @@ import { SidenavData } from '../templates/sidenavdata';
 })
 export class SidenavComponent implements OnInit {
 
-  @Input() dataService: DataService;
-
   fromLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
   fromLon = new FormControl('', [Validators.required, Validators.min(-180), Validators.max(180)]);
   toLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
@@ -23,7 +21,7 @@ export class SidenavComponent implements OnInit {
   weight: number;
   isMin: boolean;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.fromLat.setValue(42.3936964);

@@ -13,15 +13,13 @@ import { RequestService } from '../services/request.service';
 })
 export class MapComponent implements OnInit {
 
-  @Input() dataService: DataService;
-
   private map: Leaflet.Map;
   private waypoints: Leaflet.LatLng[] = [];
   private currentRoute: Leaflet.Polyline;
   private startMarker: Leaflet.Marker;
   private endMarker: Leaflet.Marker;
 
-  constructor(private reqService: RequestService) { }
+  constructor(private reqService: RequestService, private dataService: DataService) { }
 
   ngOnInit(): void { }
 
