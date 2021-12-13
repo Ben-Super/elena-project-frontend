@@ -50,8 +50,10 @@ export class MapComponent implements OnInit {
   private drawRoute(response): void {
     this.clearPrevRoute();
 
-    for (var i = 0; i < response.data.routes[0].length; i++) {
-      this.waypoints.push(new Leaflet.LatLng(response.data.routes[0][i][1], response.data.routes[0][i][0]));
+    console.log(response);
+
+    for (var i = 0; i < response.data.routes.length; i++) {
+      this.waypoints.push(new Leaflet.LatLng(response.data.routes[i][1], response.data.routes[i][0]));
     }
 
     this.startMarker = new Leaflet.Marker(this.waypoints[0]).addTo(this.map);

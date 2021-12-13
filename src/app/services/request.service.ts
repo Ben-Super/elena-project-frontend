@@ -8,7 +8,7 @@ import { PathData } from '../templates/pathdata';
 })
 export class RequestService {
 
-  private backendURL = 'http://104.224.183.111:8081/get2dShortestPath';
+  private backendURL = 'http://104.224.183.111:8081/getElenaRoutes';
 
   constructor(private http: HttpClient) { }
 
