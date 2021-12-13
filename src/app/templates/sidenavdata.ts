@@ -4,11 +4,13 @@ export class SidenavData {
     private pointA: Coordinate;
     private pointB: Coordinate;
     private weight: number;
+    private isMin: boolean;
     
     constructor() {
         this.pointA = new Coordinate(0, 0);
         this.pointB = new Coordinate(0, 0);
-        this.weight = 0;
+        this.weight = 1.0;
+        this.isMin = true;
     }
 
     public setPointA(pointA: Coordinate): void {
@@ -21,6 +23,10 @@ export class SidenavData {
 
     public setWeight(weight: number): void {
         this.weight = weight;
+    }
+
+    public setIsMin(isMin: boolean): void {
+        this.isMin = isMin;
     }
     
     public getPointA(): Coordinate {
@@ -35,11 +41,16 @@ export class SidenavData {
         return this.weight;
     }
 
+    public getIsMin(): boolean {
+        return this.isMin;
+    }
+
     public asJSON() {
         return {
             start: this.pointA.toArray(),
             end: this.pointB.toArray(),
-            weight: this.weight
+            weight: this.weight,
+            isMin: this.isMin
         }
     }
 }

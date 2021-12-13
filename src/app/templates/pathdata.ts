@@ -2,7 +2,7 @@ export interface PathData {
     status: number;
     message: string;
     data: {
-        routes: Array<Array<number>>;
+        route: Array<Array<number>>;
     };
     timestamp: number;
 }

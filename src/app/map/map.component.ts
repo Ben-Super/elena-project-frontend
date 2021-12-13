@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import * as Leaflet from 'leaflet';
 import { DataService } from '../services/data.service';
 import { RequestService } from '../services/request.service';
-import { Coordinate } from '../templates/coordinate';
 
 @Component({
   selector: 'app-map',
@@ -39,6 +38,15 @@ export class MapComponent implements OnInit {
     }).addTo(this.map);
   }
 
+  public getRoute(): void {
+    this.reqService.getPath(this.dataService.getRequestBody()).subscribe(
+      response => {
+        this.drawRoute(response);
+      },
+      error => console.log("Error >>> " + error)
+    );
+  }
+
   private drawRoute(response): void {
     this.clearPrevRoute();
 
@@ -61,14 +69,5 @@ export class MapComponent implements OnInit {
     if (this.startMarker != null) this.map.removeLayer(this.startMarker);
     if (this.endMarker != null) this.map.removeLayer(this.endMarker);
     this.waypoints = [];
-  }
-
-  public getRoute(): void {
-    this.reqService.getPath(this.dataService.getRequestBody()).subscribe(
-      response => {
-        this.drawRoute(response);
-      },
-      error => console.log("Error >>> " + error)
-    );
   }
 }
