@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "http://104.224.183.111:8081",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import * as Leaflet from 'leaflet';
-import 'leaflet-routing-machine';
 import { DataService } from '../services/data.service';
+import { RequestService } from '../services/request.service';
 import { Coordinate } from '../templates/coordinate';
 
 @Component({
@@ -14,17 +14,18 @@ export class MapComponent implements OnInit {
   @Input() dataService: DataService;
 
   private map: Leaflet.Map;
-  private routingControl = null;
-  // will eventually store the entire custom route
-  private routes = [];
+  private waypoints: Leaflet.LatLng[] = [];
+  private currentRoute: Leaflet.Polyline;
+  private startMarker: Leaflet.Marker;
+  private endMarker: Leaflet.Marker;
 
-  constructor() { }
+  constructor(private reqService: RequestService) { }
 
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     this.initMap();
-    this.dataService.getData().subscribe(data => { this.drawRoute(data.getPointA(), data.getPointB()); });
+    this.dataService.getData().subscribe(data => { this.getRoute(); });
   }
 
   private initMap(): void {
@@ -38,16 +39,36 @@ export class MapComponent implements OnInit {
     }).addTo(this.map);
   }
 
-  public drawRoute(pointA: Coordinate, pointB: Coordinate): void {
-    if (this.routingControl != null) {
-      this.map.removeControl(this.routingControl);
+  private drawRoute(response): void {
+    this.clearPrevRoute();
+
+    for (var i = 0; i < response.data.routes[0].length; i++) {
+      this.waypoints.push(new Leaflet.LatLng(response.data.routes[0][i][1], response.data.routes[0][i][0]));
     }
-    console.log("Drawing new route between coordinates:\n" + pointA.toString() + "\n" + pointB.toString());
-    this.routingControl = Leaflet.Routing.control({
-      waypoints: [
-        new Leaflet.LatLng(pointA.lat, pointA.long),
-        new Leaflet.LatLng(pointB.lat, pointB.long),
-      ]
+
+    this.startMarker = new Leaflet.Marker(this.waypoints[0]).addTo(this.map);
+    this.endMarker = new Leaflet.Marker(this.waypoints[this.waypoints.length - 1]).addTo(this.map);
+    this.currentRoute = new Leaflet.Polyline(this.waypoints, {
+      color: 'red',
+      weight: 3,
+      opacity: 0.5,
+      smoothFactor: 1
     }).addTo(this.map);
+  }
+
+  private clearPrevRoute(): void {
+    if (this.currentRoute != null) this.map.removeLayer(this.currentRoute);
+    if (this.startMarker != null) this.map.removeLayer(this.startMarker);
+    if (this.endMarker != null) this.map.removeLayer(this.endMarker);
+    this.waypoints = [];
+  }
+
+  public getRoute(): void {
+    this.reqService.getPath(this.dataService.getRequestBody()).subscribe(
+      response => {
+        this.drawRoute(response);
+      },
+      error => console.log("Error >>> " + error)
+    );
   }
 }
