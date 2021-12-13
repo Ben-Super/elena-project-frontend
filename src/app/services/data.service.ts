@@ -22,4 +22,8 @@ export class DataService {
   public getData(): Observable<SidenavData> {
     return this.subject.asObservable();
   }
+
+  public getRequestBody() {
+    return this.data.asJSON();
+  }
 }

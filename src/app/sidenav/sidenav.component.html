@@ -1,7 +1,7 @@
 <!-- This component will handle the content in the sidenav -->
 <div class="sidenav-rows">
     <div class="sidenav-row">
-        <h2 style="font-family:roboto">From</h2>
+        <h2>From</h2>
         <mat-form-field appearance="standard">
             <mat-label>Lattitude</mat-label>
             <input matInput type="number" placeholder="0.00" [formControl]="fromLat" required>
@@ -16,7 +16,7 @@
     </div>
     <mat-divider></mat-divider>
     <div class="sidenav-row">
-        <h2 style="font-family:roboto">To</h2>
+        <h2>To</h2>
         <mat-form-field appearance="standard">
             <mat-label>Lattitude</mat-label>
             <input matInput type="number" placeholder="0.00" [formControl]="toLat" required>
@@ -31,13 +31,21 @@
     </div>
     <mat-divider></mat-divider>
     <div class="sidenav-row">
-        <h2 style="font-family:roboto">Elevation</h2>
+        <h2>Weight</h2>
+        <mat-slider min="0.0" max="0.5" step="0.01" value="0.1" [(ngModel)]="weight"></mat-slider>
+        <b>{{ weight }}
+        </b>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sidenav-row">
+        <h2>Elevation</h2>
         <mat-radio-group aria-label="Select an option">
             <mat-radio-button class="radio-button" value="1">Minimize</mat-radio-button>
             <mat-radio-button class="radio-button" value="2">Maximize</mat-radio-button>
         </mat-radio-group>
     </div>
-    <div class="button-container">
+    <mat-divider></mat-divider>
+    <div class="sidenav-button">
         <button (click)="getPath()" mat-raised-button >Find Path</button>
     </div>
 </div>

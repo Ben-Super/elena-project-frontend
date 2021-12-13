@@ -10,4 +10,8 @@ export class Coordinate {
     public toString(): string {
         return '[' + this.lat + ', ' + this.long + ']';
     }
+
+    public toArray() {
+        return [this.long, this.lat];
+    }
 }
