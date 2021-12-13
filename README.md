@@ -8,7 +8,7 @@ This is the frontend of our CS520 final project. It is a reactive webpage that a
 
 Prerequisites: Node.js, Angular Devkit, and Angular CLI installed (https://angular.io/guide/setup-local)
 
-1) Install node.js by downloading and installing from this link:
+1) Install node.js by downloading and installing from this link:\n
       Windows: https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi
       MacOS: https://nodejs.org/dist/v16.13.1/node-v16.13.1.pkg
 2) Run 'npm install -g @angular/cli' to install the Angular CLI
