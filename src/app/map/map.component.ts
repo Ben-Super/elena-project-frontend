@@ -3,6 +3,9 @@ import * as Leaflet from 'leaflet';
 import { DataService } from '../services/data.service';
 import { RequestService } from '../services/request.service';
 
+/*
+ * This component holds the code for the dynamic map
+ */
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -27,6 +30,7 @@ export class MapComponent implements OnInit {
     this.dataService.getData().subscribe(data => { this.getRoute(); });
   }
 
+  // Initiates the map, makes the center at UMass
   private initMap(): void {
     this.map = Leaflet.map('map', {
       zoom: 15,
@@ -38,6 +42,7 @@ export class MapComponent implements OnInit {
     }).addTo(this.map);
   }
 
+  // Invokes the RequestService to obtain the path, then calls drawRoute() to put it on the map
   public getRoute(): void {
     this.reqService.getPath(this.dataService.getRequestBody()).subscribe(
       response => {
@@ -47,6 +52,7 @@ export class MapComponent implements OnInit {
     );
   }
 
+  // Parses the response into an array of waypoints, then draws a path with those points
   private drawRoute(response): void {
     this.clearPrevRoute();
 
@@ -66,6 +72,7 @@ export class MapComponent implements OnInit {
     }).addTo(this.map);
   }
 
+  // Removes the previous path from the map
   private clearPrevRoute(): void {
     if (this.currentRoute != null) this.map.removeLayer(this.currentRoute);
     if (this.startMarker != null) this.map.removeLayer(this.startMarker);

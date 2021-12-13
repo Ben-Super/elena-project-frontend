@@ -4,6 +4,9 @@ import { DataService } from '../services/data.service';
 import { Coordinate } from '../templates/coordinate';
 import { SidenavData } from '../templates/sidenavdata';
 
+/*
+ * This is the component responsible for the user input fields in the sidenav
+ */
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -30,6 +33,7 @@ export class SidenavComponent implements OnInit {
     this.weight = 1.0;
   }
 
+  // Verifies that the coordinates are valid, then sends the updated data to the DataService
   getPath() {
     if(this.fromLat.valid && this.fromLon.valid && this.toLat.valid && this.toLon.valid) {
       let data = new SidenavData();

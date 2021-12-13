@@ -1,3 +1,6 @@
+/*
+ * This class represents a single lat/lng coordinate
+ */
 export class Coordinate {
     public lat: number;
     public long: number;

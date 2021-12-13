@@ -1,3 +1,6 @@
+/*
+ * This serves as a template for the path data returned from the backend
+ */
 export interface PathData {
     status: number;
     message: string;

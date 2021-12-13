@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PathData } from '../templates/pathdata';
 
+/*
+ * This service handles http requests to the backend
+ */
 @Injectable({
   providedIn: 'root'
 })

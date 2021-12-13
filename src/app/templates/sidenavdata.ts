@@ -1,5 +1,8 @@
 import { Coordinate } from './coordinate';
 
+/*
+ * This class holds all the user input from the sidenav
+ */
 export class SidenavData {
     private pointA: Coordinate;
     private pointB: Coordinate;
@@ -45,6 +48,7 @@ export class SidenavData {
         return this.isMin;
     }
 
+    // Returns this as JSON so it can be sent to the backend
     public asJSON() {
         return {
             start: this.pointA.toArray(),
