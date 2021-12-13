@@ -34,3 +34,10 @@ http://104.224.183.111
 ![image]( | width=100)
 <img src="https://user-images.githubusercontent.com/17773869/145902094-94cabef2-de8b-4c61-b0f1-356e7e2626dc.png" alt=""  width="200"/>
 
+2) Set the weight parameter and choose to minimize or maximize the elevation <br/>
+   The routes that get considered are ones that are less than weight * optimal 2D route length <br/>
+<img src="https://user-images.githubusercontent.com/17773869/145902607-800db976-2ed6-4f4d-8601-db50e94bafc8.png" alt=""  width="200"/>
+
+
+
+
