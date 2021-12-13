@@ -36,8 +36,9 @@ http://104.224.183.111
 
 2) Set the weight parameter and choose to minimize or maximize the elevation <br/>
    The routes that get considered are ones that are less than weight * optimal 2D route length <br/>
-<img src="https://user-images.githubusercontent.com/17773869/145902607-800db976-2ed6-4f4d-8601-db50e94bafc8.png" alt=""  width="200"/>
+<img src="https://user-images.githubusercontent.com/17773869/145903056-b8f9e5f9-6b3f-4848-aa33-2a65aedcf91b.png" alt=""  width="200"/>
 
+3) Click the 'Find Path' button and the desired route will be displayed on the map
 
 
 
