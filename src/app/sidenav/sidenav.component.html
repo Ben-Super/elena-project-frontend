@@ -32,16 +32,16 @@
     <mat-divider></mat-divider>
     <div class="sidenav-row">
         <h2>Weight</h2>
-        <mat-slider min="0.0" max="0.5" step="0.01" value="0.1" [(ngModel)]="weight"></mat-slider>
+        <mat-slider min="1.0" max="1.5" step="0.01" value="1.0" [(ngModel)]="weight"></mat-slider>
         <b>{{ weight }}
         </b>
     </div>
     <mat-divider></mat-divider>
     <div class="sidenav-row">
         <h2>Elevation</h2>
-        <mat-radio-group aria-label="Select an option">
-            <mat-radio-button class="radio-button" value="1">Minimize</mat-radio-button>
-            <mat-radio-button class="radio-button" value="2">Maximize</mat-radio-button>
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="isMin">
+            <mat-radio-button class="radio-button" value="true">Minimize</mat-radio-button>
+            <mat-radio-button class="radio-button" value="false">Maximize</mat-radio-button>
         </mat-radio-group>
     </div>
     <mat-divider></mat-divider>

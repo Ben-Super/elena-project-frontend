@@ -18,6 +18,7 @@ export class SidenavComponent implements OnInit {
   toLat = new FormControl('', [Validators.required, Validators.min(-90), Validators.max(90)]);
   toLon = new FormControl('', [Validators.required, Validators.min(-180), Validators.max(180)]);
   weight: number;
+  isMin: boolean;
 
   constructor() { }
 
@@ -26,7 +27,7 @@ export class SidenavComponent implements OnInit {
     this.fromLon.setValue(-72.5311701);
     this.toLat.setValue(42.3976964);
     this.toLon.setValue(-72.5351701);
-    this.weight = 0.1;
+    this.weight = 1.0;
   }
 
   getPath() {
@@ -35,6 +36,7 @@ export class SidenavComponent implements OnInit {
       data.setPointA(new Coordinate(this.fromLat.value, this.fromLon.value));
       data.setPointB(new Coordinate(this.toLat.value, this.toLon.value));
       data.setWeight(this.weight);
+      data.setIsMin(this.isMin);
       this.dataService.setData(data);
     } else {
       alert('Please Input valid coordinates!');
