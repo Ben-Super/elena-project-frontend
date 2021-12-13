@@ -31,5 +31,5 @@ http://104.224.183.111
 
 ## User Instructions
 1) Input the longitude and latitude coordinates for the From and To points
-![image](https://user-images.githubusercontent.com/17773869/145902094-94cabef2-de8b-4c61-b0f1-356e7e2626dc.png)
+![image](https://user-images.githubusercontent.com/17773869/145902094-94cabef2-de8b-4c61-b0f1-356e7e2626dc.png | width=100)
 
