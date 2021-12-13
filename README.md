@@ -5,8 +5,7 @@ By the 'OHill Squad' (Ben Super, Phil Hopen, Jurgen Yu, Sanjay Rajasekaran, and 
 This is the frontend of our CS520 final project. It is a reactive webpage that allows the user to input coordinates and see a route that either maximizes or minimizes elevation plotted on an interactive 'click-and-drag' map.
 
 ## Run on a Dev Server
-
-Prerequisites: Node.js, Angular Devkit, and Angular CLI installed (https://angular.io/guide/setup-local)
+https://angular.io/guide/setup-local
 
 1) Install node.js by downloading and installing from this link:<br />
         Windows: https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi<br />
@@ -26,3 +25,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Test
 
 Run `ng test` to run a suite of basic tests on the project. This will generate a webpage showing the results of the tests.
+
+## Running Website
+http://104.224.183.111
