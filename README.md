@@ -17,3 +17,7 @@ NOTE: The routing will not work without a running instance of our backend: https
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Test
+
+Run `ng test` to run a suite of basic tests on the project. This will generate a webpage showing the results of the tests.
